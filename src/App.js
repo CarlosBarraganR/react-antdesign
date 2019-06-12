@@ -4,7 +4,7 @@ import { Layout } from 'antd';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { HomeViewContainer } from './views/home/home.view.container';
 import { NotFound } from './views/not-found/not-found.view';
-import { ViewTest } from './views/viewTest/viewTest.view';
+import { ViewTest } from './views/view-test/viewTest.view';
 
 const { Content } = Layout;
 
