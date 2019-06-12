@@ -1,0 +1,12 @@
+[ignore]
+node_modules
+src/assets
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]

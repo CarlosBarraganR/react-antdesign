@@ -1,0 +1,9 @@
+# /node_modules/* and /bower_components/* ignored by default
+
+# Ignore built files except build/index.js
+build/*
+scripts/*
+public/*
+config/*
+.storybook/*
+src/serviceWorker.js
