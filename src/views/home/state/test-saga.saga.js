@@ -28,7 +28,7 @@ export function* dogsTestApiCallWatcher(): Saga<takeLatest> {
 function* dogsTestApiCallWorker() {
   try {
     const response = yield call(dogsTestApiCall);
-    yield put({ type: API_CALL_SUCCESS, dogUrl: response.data });
+    yield put({ type: API_CALL_SUCCESS, payload: response.data });
   } catch (error) {
     yield put({ type: API_CALL_FAILURE, error });
   }

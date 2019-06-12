@@ -25,7 +25,7 @@ export const reducerSlice = (state: Object = initialState, action: Object) => {
     case API_CALL_REQUEST:
       return { ...state, loading: true, error: null };
     case API_CALL_SUCCESS:
-      return { ...state, loading: false, dogUrl: action.dogUrl.message };
+      return { ...state, loading: false, dogUrl: action.payload.message };
     case API_CALL_FAILURE:
       return { ...state, loading: false, dogUrl: null, error: action.error };
     default:
