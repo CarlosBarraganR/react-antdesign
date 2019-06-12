@@ -16,9 +16,7 @@ const ViewTestComp = (props: Props) => {
 };
 
 const styles: Object = {
-  root: {
-    height: '100vh'
-  }
+  root: {}
 };
 
 export const ViewTest = withStyles(styles)(ViewTestComp);

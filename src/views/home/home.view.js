@@ -45,9 +45,7 @@ const HomeViewComp = (props: Props) => {
 };
 
 const styles: Object = {
-  root: {
-    height: '100vh'
-  }
+  root: {}
 };
 
 export const HomeView = withStyles(styles)(HomeViewComp);
