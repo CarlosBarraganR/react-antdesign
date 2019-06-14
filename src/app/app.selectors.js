@@ -12,3 +12,8 @@ export const siderCollapsedSelector = createSelector(
   appLayoutSlice,
   slice => slice && slice.siderCollapsed
 );
+
+export const drawerOpenSelector = createSelector(
+  appLayoutSlice,
+  slice => slice && slice.drawerOpen
+);

@@ -1,18 +1,20 @@
 // @flow
 import React from 'react';
 import withStyles from 'react-jss';
-import { Layout, Menu, Icon, Dropdown, Avatar, Button } from 'antd';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { Layout, Menu, Icon, Dropdown, Avatar, Button, Drawer } from 'antd';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { HomeViewContainer } from '../views/home/home.view.container';
 import { NotFound } from '../views/not-found/not-found.view';
 import { ViewTest } from '../views/view-test/viewTest.view';
-import Logo from '../assets/logo.svg';
+import { MenuList } from './menu-list/menu-list.component';
 
 type Props = {
   classes: Object,
   isViewResponsive: boolean,
   siderCollapsed: boolean,
+  drawerOpen: boolean,
   setLayoutResponsive: (responsive: boolean) => void,
+  setDrawerOpen: (open: boolean) => void,
   setSiderCollapsed: (collapsed: boolean) => void
 };
 
@@ -42,15 +44,15 @@ const AppComp = (props: Props) => {
   const {
     classes,
     setLayoutResponsive,
+    setDrawerOpen,
+    drawerOpen,
     setSiderCollapsed,
     isViewResponsive,
     siderCollapsed
   } = props;
 
-  console.log(siderCollapsed);
-
   const menu = (
-    <Menu onClick={e => console.log(`clicked menu: ${e}`)}>
+    <Menu onClick={e => console.log(`clicked menu:`, e.key)}>
       <Menu.Item key="1">
         <Icon type="user" />
         1st menu item
@@ -78,28 +80,21 @@ const AppComp = (props: Props) => {
           onBreakpoint={broken => setLayoutResponsive(broken)}
           onCollapse={collapsed => setSiderCollapsed(collapsed)}
         >
-          <img alt="logo" src={Logo} />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1">
-              <Link to="/">
-                <Icon type="home" />
-                <span>Home</span>
-              </Link>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Link to="/test">
-                <Icon type="desktop" />
-                <span>Option 1</span>
-              </Link>
-            </Menu.Item>
-          </Menu>
+          <MenuList
+            isViewResponsive={isViewResponsive}
+            setDrawerOpen={setDrawerOpen}
+          />
         </Sider>
         <Layout>
           <Header className={classes.header}>
             <Icon
               className={classes.trigger}
               type={siderCollapsed ? 'menu-unfold' : 'menu-fold'}
-              onClick={() => setSiderCollapsed(!siderCollapsed)}
+              onClick={() =>
+                isViewResponsive
+                  ? setDrawerOpen(!drawerOpen)
+                  : setSiderCollapsed(!siderCollapsed)
+              }
             />
             <Dropdown
               overlay={menu}
@@ -107,10 +102,7 @@ const AppComp = (props: Props) => {
               trigger={['click']}
             >
               <Button className={classes.buttonTransparent}>
-                <Avatar
-                  style={{ backgroundColor: '#1890ff', marginRight: 10 }}
-                  icon="user"
-                />
+                <Avatar className={classes.avatar} icon="user" />
                 Username
               </Button>
             </Dropdown>
@@ -125,6 +117,22 @@ const AppComp = (props: Props) => {
           <Footer className={classes.footer}>
             Ant Design ©2018 Created by Ant UED
           </Footer>
+          <Drawer
+            bodyStyle={{
+              height: '100%',
+              backgroundColor: '#001529',
+              padding: 0
+            }}
+            placement="left"
+            closable={false}
+            onClose={() => setDrawerOpen(false)}
+            visible={drawerOpen}
+          >
+            <MenuList
+              isViewResponsive={isViewResponsive}
+              setDrawerOpen={setDrawerOpen}
+            />
+          </Drawer>
         </Layout>
       </Layout>
     </Router>
@@ -170,6 +178,13 @@ const styles: Object = {
     fontSize: 20,
     cursor: 'pointer',
     transition: 'all .3s, padding 0s'
+  },
+  avatar: {
+    backgroundColor: '#1890ff',
+    marginRight: 10
+  },
+  drawer: {
+    backgroundColor: 'red'
   },
   footer: {
     marginLeft: props =>
