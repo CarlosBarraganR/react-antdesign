@@ -25,7 +25,7 @@ const reducer = combine(reducerRegistry.getReducers());
 const sagas = Object.values(sagaRegistry.getSagas()).map(saga => fork(saga));
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(
+export const store = createStore(
   reducer,
   compose(
     applyMiddleware(sagaMiddleware),

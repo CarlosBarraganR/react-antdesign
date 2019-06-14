@@ -4,11 +4,11 @@ import withStyles from 'react-jss';
 import { Layout, Drawer } from 'antd';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { HomeViewContainer } from '../views/home/home.view.container';
-import { NotFound } from '../views/not-found/not-found.view';
 import { ViewTest } from '../views/view-test/viewTest.view';
 import { MenuList } from './menu-list/menu-list.component';
 import { responsiveMarginLeft } from './util/responsiveLayoutCSS';
 import { HeaderContent } from './header-content/header-content.component';
+import { NotFoundView } from '../views/not-found/not-found.view';
 
 type Props = {
   classes: Object,
@@ -62,7 +62,7 @@ const AppComp = (props: Props) => {
             <Switch>
               <Route exact path="/" component={HomeViewContainer} />
               <Route exact path="/test" component={ViewTest} />
-              <Route component={NotFound} />
+              <Route component={NotFoundView} />
             </Switch>
           </Content>
           <Footer className={classes.footer}>

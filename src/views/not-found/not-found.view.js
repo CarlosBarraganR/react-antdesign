@@ -7,7 +7,7 @@ import { Button } from 'antd';
 type Props = {
   classes: Object
 };
-export const NotFoundView = (props: Props) => {
+export const NotFoundViewComp = (props: Props) => {
   const { classes } = props;
   return (
     <div className={classes.container}>
@@ -67,4 +67,4 @@ const styles: Object = {
   }
 };
 
-export const NotFound = withStyles(styles)(NotFoundView);
+export const NotFoundView = withStyles(styles)(NotFoundViewComp);

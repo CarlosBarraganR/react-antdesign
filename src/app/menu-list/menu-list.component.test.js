@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { AppContainer } from './app.container';
-import store from '../redux/createStore';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { MenuList } from './menu-list.component';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <Provider store={store}>
-      <AppContainer />
-    </Provider>,
+    <Router>
+      <MenuList />
+    </Router>,
     div
   );
   ReactDOM.unmountComponentAtNode(div);
