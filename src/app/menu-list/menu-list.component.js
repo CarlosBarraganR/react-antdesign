@@ -6,7 +6,6 @@ import { Menu, Icon } from 'antd';
 import Logo from '../../assets/logo.svg';
 
 type Props = {
-  classes: Object,
   isViewResponsive: boolean,
   setDrawerOpen: (open: boolean) => void
 };
@@ -14,7 +13,7 @@ type Props = {
 const MenuComp = (props: Props) => {
   const { isViewResponsive, setDrawerOpen } = props;
   return (
-    <div>
+    <React.Fragment>
       <img alt="logo" src={Logo} />
       <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
         <Menu.Item key="1">
@@ -36,7 +35,7 @@ const MenuComp = (props: Props) => {
           </Link>
         </Menu.Item>
       </Menu>
-    </div>
+    </React.Fragment>
   );
 };
 

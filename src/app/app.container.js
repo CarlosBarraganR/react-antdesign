@@ -34,7 +34,5 @@ export const AppContainer = compose(
     mapStateToProps,
     mapDispatchToProps
   ),
-  withLifecycle({
-    onDidMount(props) {}
-  })
+  withLifecycle({})
 )(App);
