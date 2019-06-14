@@ -21,7 +21,7 @@ const dogsTestApiCall = () => {
   });
 };
 
-export function* dogsTestApiCallWatcher(): Saga<takeLatest> {
+function* dogsTestApiCallWatcher(): Saga<takeLatest> {
   yield takeLatest(API_CALL_REQUEST, dogsTestApiCallWorker);
 }
 
