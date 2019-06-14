@@ -192,7 +192,8 @@ const styles: Object = {
     textAlign: 'center'
   },
   buttonTransparent: {
-    border: 'transparent'
+    border: 'transparent',
+    boxShadow: 'none'
   }
 };
 
