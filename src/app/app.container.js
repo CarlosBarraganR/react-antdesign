@@ -6,7 +6,8 @@ import { App } from './app';
 import {
   isViewResponsiveSelector,
   siderCollapsedSelector,
-  drawerOpenSelector
+  drawerOpenSelector,
+  userSelector
 } from './app.selectors';
 import { setLayoutResponsiveAction } from './state/set-layout-responsive.saga';
 import { setSiderCollapsedAction } from './state/set-sider-collapsed.saga';
@@ -16,7 +17,8 @@ const mapStateToProps = (state: Object): Object => {
   return {
     isViewResponsive: isViewResponsiveSelector(state),
     siderCollapsed: siderCollapsedSelector(state),
-    drawerOpen: drawerOpenSelector(state)
+    drawerOpen: drawerOpenSelector(state),
+    user: userSelector(state)
   };
 };
 

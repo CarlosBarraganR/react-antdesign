@@ -17,3 +17,18 @@ export const drawerOpenSelector = createSelector(
   appLayoutSlice,
   slice => slice && slice.drawerOpen
 );
+
+export const userSelector = createSelector(
+  appLayoutSlice,
+  slice => slice && slice.user
+);
+
+export const userLoadingSelector = createSelector(
+  appLayoutSlice,
+  slice => slice && slice.loading
+);
+
+export const userErrorSelector = createSelector(
+  appLayoutSlice,
+  slice => slice && slice.error
+);
