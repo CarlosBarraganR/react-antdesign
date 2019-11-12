@@ -8,8 +8,8 @@ export class ReducerRegistry {
     return { ...this._reducers };
   }
 
-  register(name, reducer) {
-    this._reducers = { ...this._reducers, [name]: reducer };
+  register(reducer) {
+    this._reducers = { ...this._reducers, [reducer.sliceName]: reducer };
     if (this._emitChange) {
       this._emitChange(this.getReducers());
     }
@@ -20,5 +20,4 @@ export class ReducerRegistry {
   }
 }
 
-const reducerRegistry = new ReducerRegistry();
-export default reducerRegistry;
+export const reducerRegistry = new ReducerRegistry();

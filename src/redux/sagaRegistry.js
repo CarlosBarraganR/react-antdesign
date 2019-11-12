@@ -8,11 +8,11 @@ export class SagaRegistry {
     return { ...this._sagas };
   }
 
-  register(name, saga) {
-    if (this._sagas[name]) {
+  register(saga) {
+    if (this._sagas[saga.name]) {
       return;
     }
-    this._sagas = { ...this._sagas, [name]: saga };
+    this._sagas = { ...this._sagas, [saga.name]: saga };
     if (this._emitChange) {
       this._emitChange(saga);
     }
@@ -23,5 +23,4 @@ export class SagaRegistry {
   }
 }
 
-const sagaRegistry = new SagaRegistry();
-export default sagaRegistry;
+export const sagaRegistry = new SagaRegistry();

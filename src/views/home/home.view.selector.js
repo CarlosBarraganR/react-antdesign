@@ -1,7 +1,8 @@
 // @flow
 import { createSelector } from 'reselect';
+import { dogsTestReducer } from './home.view.reducer';
 
-const testSlice = state => state.dogsTest;
+const testSlice = state => state[dogsTestReducer.sliceName];
 
 export const loadingTestSelector = createSelector(
   testSlice,

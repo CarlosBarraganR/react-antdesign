@@ -2,8 +2,8 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { all, fork } from 'redux-saga/effects';
 import createSagaMiddleware, { Saga } from 'redux-saga';
-import reducerRegistry from './reducerRegistry';
-import sagaRegistry from './sagaRegistry';
+import { reducerRegistry } from './reducerRegistry';
+import { sagaRegistry } from './sagaRegistry';
 
 const initialState = {};
 

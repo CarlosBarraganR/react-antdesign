@@ -8,7 +8,7 @@ import {
   errorTestSelector,
   dogTestSelector
 } from './home.view.selector';
-import { dogsTestApiCallAction } from './state/test-saga.saga';
+import { dogsTestApiCallAction } from './state/test-saga.action';
 
 const mapStateToProps = (state: Object): Object => {
   return {
