@@ -44,5 +44,3 @@ reducerRegistry.setChangeListener(reducers => {
 sagaRegistry.setChangeListener(saga => {
   sagaMiddleware.run(saga);
 });
-
-export default store;
